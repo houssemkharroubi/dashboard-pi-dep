@@ -54,7 +54,7 @@ function AddHospitalComponent() {
 
 
     console.log(Hospital)
-    await axios.post('http://localhost:5000/hospital/addHospitalwithAdmin', Hospital)
+    await axios.post('https://hospihub.onrender.com/hospital/addHospitalwithAdmin', Hospital)
       .then((response) => {
         console.log(response.data)
         setsuccesShow(true)

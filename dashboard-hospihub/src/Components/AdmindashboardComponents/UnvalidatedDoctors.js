@@ -21,7 +21,7 @@ function ListDoctorUnvalidated(props) {
         const token = localStorage.getItem('jwtToken');
         if (token) {
             const decodedToken = jwt_decode(token);
-            axios.get(`http://localhost:5000/hospital/getHospitalById/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/hospital/getHospitalById/${decodedToken.id}`)
                 .then((response) => {
                     console.log(response.data)
                     setHospital(response.data)
@@ -33,7 +33,7 @@ function ListDoctorUnvalidated(props) {
                 })
 
 
-        axios.get(`http://localhost:5000/admin/getdoctorsconfirmednonvalidated/${decodedToken.id}`)
+        axios.get(`https://hospihub.onrender.com/admin/getdoctorsconfirmednonvalidated/${decodedToken.id}`)
         .then((response) => {
             console.log(response.data)
             setdoctors(response.data)
@@ -55,10 +55,10 @@ function ListDoctorUnvalidated(props) {
         if (token) {
         const decodedToken = jwt_decode(token);
         console.log(id)
-        axios.put(`http://localhost:5000/admin/validatedoctor/${id}`)
+        axios.put(`https://hospihub.onrender.com/admin/validatedoctor/${id}`)
             .then((response) => {
                 console.log(response.data)
-                axios.get(`http://localhost:5000/admin/getdoctorsconfirmednonvalidated/${decodedToken.id}`)
+                axios.get(`https://hospihub.onrender.com/admin/getdoctorsconfirmednonvalidated/${decodedToken.id}`)
                     .then((response) => {
                         console.log(response.data)
                         setdoctors(response.data)

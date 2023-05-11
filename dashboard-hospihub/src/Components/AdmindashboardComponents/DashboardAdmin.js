@@ -14,7 +14,7 @@ function DashboardAdmin() {
     const token = localStorage.getItem('jwtToken');
     if (token) {
       const decodedToken = jwt_decode(token);
-      axios.get(`http://localhost:5000/hospital/getHospitalById/${decodedToken.id}`)
+      axios.get(`https://hospihub.onrender.com/hospital/getHospitalById/${decodedToken.id}`)
         .then((response) => {
           console.log(response.data)
           setHospital(response.data)

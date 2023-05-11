@@ -30,7 +30,7 @@ function UpdateHospitalComponent() {
   const { AdminEmail, HospitalName, HospitalAddress, PhoneNumber } = Hospital
 
   useEffect(() => {
-    axios.get(`http://localhost:5000/hospital/getHospitalById/${idHospitalToUpdate}`)
+    axios.get(`https://hospihub.onrender.com/hospital/getHospitalById/${idHospitalToUpdate}`)
       .then((response) => {
         console.log(response.data)
         setHospital(response.data)
@@ -52,7 +52,7 @@ function UpdateHospitalComponent() {
 
 
   const UpdateHospital = () => {
-    axios.put(`http://localhost:5000/hospital/updateHospital/${idHospitalToUpdate}`, Hospital)
+    axios.put(`https://hospihub.onrender.com/hospital/updateHospital/${idHospitalToUpdate}`, Hospital)
       .then((response) => {
         console.log(response.data)
         setsuccesShow(true)
@@ -72,7 +72,7 @@ function UpdateHospitalComponent() {
     setHospitalPasswordUpdate({ ...HospitalPasswordUpdate, [e.target.name]: e.target.value });
   }
   const updatePasswordHospital=()=>{
-    axios.put(`http://localhost:5000/hospital/updatePasswordHospital/${idHospitalToUpdate}`, HospitalPasswordUpdate)
+    axios.put(`https://hospihub.onrender.com/hospital/updatePasswordHospital/${idHospitalToUpdate}`, HospitalPasswordUpdate)
       .then((response) => {
         console.log(response.data)
         setsuccesShowPassword(true)

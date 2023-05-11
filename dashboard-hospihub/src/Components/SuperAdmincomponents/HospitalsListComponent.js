@@ -15,7 +15,7 @@ function HospitalListComponent(props) {
     const[ModalShow,setModalShow]=useState(false)
 
     useEffect(() => {
-        axios.get('http://localhost:5000/hospital/getAllHospitals')
+        axios.get('https://hospihub.onrender.com/hospital/getAllHospitals')
             .then((response) => {
                 console.log(response.data)
                 setHospitals(response.data)
@@ -32,9 +32,9 @@ function HospitalListComponent(props) {
     console.log(idHospitalToDelete)
 
     const deleteHospital=()=>{
-        axios.delete(`http://localhost:5000/hospital/deleteHospital/${idHospitalToDelete}`)
+        axios.delete(`https://hospihub.onrender.com/hospital/deleteHospital/${idHospitalToDelete}`)
         .then((response)=>{
-            axios.get('http://localhost:5000/hospital/getAllHospitals')
+            axios.get('https://hospihub.onrender.com/hospital/getAllHospitals')
             .then((response) => {
                 console.log(response.data)
                 setHospitals(response.data)

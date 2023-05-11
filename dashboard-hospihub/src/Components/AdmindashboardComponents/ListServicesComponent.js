@@ -51,7 +51,7 @@ function ListServicesComponent() {
         const token = localStorage.getItem('jwtToken');
         if (token) {
             const decodedToken = jwt_decode(token);
-            axios.get(`http://localhost:5000/service/gethospitalservices/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/service/gethospitalservices/${decodedToken.id}`)
                 .then((response) => {
                     console.log(response.data)
                     setServices(response.data)
@@ -63,7 +63,7 @@ function ListServicesComponent() {
                 })
             console.log(Services)
 
-            axios.get(`http://localhost:5000/hospital/getHospitalById/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/hospital/getHospitalById/${decodedToken.id}`)
                 .then((response) => {
                     console.log(response.data)
                     setHospital(response.data)
@@ -82,7 +82,7 @@ function ListServicesComponent() {
     }, []);
 
     const finServicebyId = async (id) => {
-        await axios.get(`http://localhost:5000/service/getServiceById/${id}`)
+        await axios.get(`https://hospihub.onrender.com/service/getServiceById/${id}`)
             .then((response) => {
                 console.log(response.data)
                 setupdateService(response.data)
@@ -101,10 +101,10 @@ function ListServicesComponent() {
             setShowErrorMessage(true)
         }
 
-        axios.put(`http://localhost:5000/service/updateservice/${idService}/${Hospital._id}`, updateService)
+        axios.put(`https://hospihub.onrender.com/service/updateservice/${idService}/${Hospital._id}`, updateService)
             .then((response) => {
                 console.log(response.data)
-                axios.get(`http://localhost:5000/service/gethospitalservices/${Hospital._id}`)
+                axios.get(`https://hospihub.onrender.com/service/gethospitalservices/${Hospital._id}`)
                     .then((response) => {
                         console.log(response.data)
                         setServices(response.data)
@@ -129,10 +129,10 @@ function ListServicesComponent() {
     }
 
     const deleteService = () => {
-        axios.delete(`http://localhost:5000/service/deleteservice/${IdServicetodelete}`)
+        axios.delete(`https://hospihub.onrender.com/service/deleteservice/${IdServicetodelete}`)
             .then((response) => {
                 console.log(response.data)
-                axios.get(`http://localhost:5000/service/gethospitalservices/${Hospital._id}`)
+                axios.get(`https://hospihub.onrender.com/service/gethospitalservices/${Hospital._id}`)
                     .then((response) => {
                         console.log(response.data)
                         setServices(response.data)
@@ -149,7 +149,7 @@ function ListServicesComponent() {
     }
 
     const getAllDoctors = async (id) => {
-        await axios.get(`http://localhost:5000/admin/getdoctorsconfirmedvalidated/${id}`)
+        await axios.get(`https://hospihub.onrender.com/admin/getdoctorsconfirmedvalidated/${id}`)
             .then((response) => {
                 console.log(response.data)
                 setDoctors(response.data)

@@ -33,7 +33,7 @@ function ListDoctors() {
         const token = localStorage.getItem('jwtToken');
         if (token) {
             const decodedToken = jwt_decode(token);
-            axios.get(`http://localhost:5000/service/gethospitalservices/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/service/gethospitalservices/${decodedToken.id}`)
                 .then((response) => {
                     console.log(response.data)
                     setServices(response.data)
@@ -45,7 +45,7 @@ function ListDoctors() {
                 })
             console.log(Services)
 
-            axios.get(`http://localhost:5000/hospital/getHospitalById/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/hospital/getHospitalById/${decodedToken.id}`)
                 .then((response) => {
                     console.log(response.data)
                     setHospital(response.data)
@@ -56,7 +56,7 @@ function ListDoctors() {
                     }
                 })
 
-            axios.get(`http://localhost:5000/admin/getDoctorsConfirmedValidatedbyIdHspital/${decodedToken.id}`)
+            axios.get(`https://hospihub.onrender.com/admin/getDoctorsConfirmedValidatedbyIdHspital/${decodedToken.id}`)
                 .then((response) => {
                     console.log(response.data)
                     setDoctors(response.data)
@@ -76,7 +76,7 @@ function ListDoctors() {
 
 
         if (event.target.value === "") {
-            axios.get(`http://localhost:5000/admin/getDoctorsConfirmedValidatedbyIdHspital/${Hospital._id}`)
+            axios.get(`https://hospihub.onrender.com/admin/getDoctorsConfirmedValidatedbyIdHspital/${Hospital._id}`)
                 .then((response) => {
                     console.log(response.data)
                     setDoctors(response.data)
@@ -90,7 +90,7 @@ function ListDoctors() {
                 })
         }
         else {
-            await axios.get(`http://localhost:5000/admin/getdoctorsconfirmedvalidated/${event.target.value}`)
+            await axios.get(`https://hospihub.onrender.com/admin/getdoctorsconfirmedvalidated/${event.target.value}`)
                 .then((response) => {
                     console.log(response.data)
                     setDoctors(response.data)
@@ -126,10 +126,10 @@ function ListDoctors() {
         const token = localStorage.getItem('jwtToken');
         const decodedToken = jwt_decode(token);
 
-        axios.put(`http://localhost:5000/accountStatus/blockuser/${idUserToblock}`)
+        axios.put(`https://hospihub.onrender.com/accountStatus/blockuser/${idUserToblock}`)
             .then((response) => {
                 console.log(response.data)
-                axios.get(`http://localhost:5000/admin/getDoctorsConfirmedValidatedbyIdHspital/${decodedToken._id}`)
+                axios.get(`https://hospihub.onrender.com/admin/getDoctorsConfirmedValidatedbyIdHspital/${decodedToken._id}`)
                     .then((response) => {
 
                         setDoctors(response.data)
@@ -149,10 +149,10 @@ function ListDoctors() {
         const token = localStorage.getItem('jwtToken');
         const decodedToken = jwt_decode(token);
 
-        axios.put(`http://localhost:5000/accountStatus/archiveuser/${idUserToArchive}`)
+        axios.put(`https://hospihub.onrender.com/accountStatus/archiveuser/${idUserToArchive}`)
             .then((response) => {
                 console.log(response.data)
-                axios.get(`http://localhost:5000/admin/getDoctorsConfirmedValidatedbyIdHspital/${decodedToken._id}`)
+                axios.get(`https://hospihub.onrender.com/admin/getDoctorsConfirmedValidatedbyIdHspital/${decodedToken._id}`)
                     .then((response) => {
 
                         setDoctors(response.data)
@@ -172,10 +172,10 @@ function ListDoctors() {
         const token = localStorage.getItem('jwtToken');
         const decodedToken = jwt_decode(token);
 
-        axios.put(`http://localhost:5000/accountStatus/activateuser/${idUserToActive}`)
+        axios.put(`https://hospihub.onrender.com/accountStatus/activateuser/${idUserToActive}`)
             .then((response) => {
                 console.log(response.data)
-                axios.get(`http://localhost:5000/admin/getDoctorsConfirmedValidatedbyIdHspital/${decodedToken._id}`)
+                axios.get(`https://hospihub.onrender.com/admin/getDoctorsConfirmedValidatedbyIdHspital/${decodedToken._id}`)
                     .then((response) => {
 
                         setDoctors(response.data)
